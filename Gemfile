@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.15'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,7 +23,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :development do
+	gem 'annotate'
+end
+
+group :test do
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'factory_girl_rails'
+	gem 'selenium-webdriver'
+	gem 'database_cleaner'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
