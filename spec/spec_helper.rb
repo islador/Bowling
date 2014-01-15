@@ -15,6 +15,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 
+  config.include FactoryGirl::Syntax::Methods
 
   # For selenium according to: https://groups.google.com/d/msg/ruby-capybara/2lFnQvMFGxs/YvOvebpctFcJ
   config.use_transactional_fixtures = false
