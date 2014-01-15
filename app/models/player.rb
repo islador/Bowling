@@ -11,5 +11,8 @@
 #
 
 class Player < ActiveRecord::Base
-  attr_accessible :game_id, :name, :team
+  attr_accessible :name, :team
+
+  has_one :scorecard
+  belongs_to :game
 end
