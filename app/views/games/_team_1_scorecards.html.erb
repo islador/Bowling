@@ -139,7 +139,9 @@
 			</div>
 			
 			<div class="bigbox"> 
-				<h1 class="total_score" id="total_score_p<%=p.id%>">300</h2>
+				<h1 class="total_score" id="total_score_p<%=p.id%>">
+					<%= render :partial => 'total', locals: {total: @total}%>
+				</h2>
 			</div>
 		</div>
 	<% end %>
