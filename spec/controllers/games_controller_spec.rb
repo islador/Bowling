@@ -51,6 +51,11 @@ describe GamesController do
 	end
 
 	describe "Play" do
+		let!(:game) {FactoryGirl.create(:game)}
 
+		it "should retrieve a game based on the parameters it is sent" do
+			xhr :get, :play, :game_id => 1
+			expect(assigns(:game).id).to be 1
+		end
 	end
 end
