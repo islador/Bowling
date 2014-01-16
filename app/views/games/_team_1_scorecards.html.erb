@@ -1,7 +1,7 @@
 <%@game.players.each do |p| %>
 	<% if p.team == 1 %>
 	<h3><%=p.name%></h3>
-		<div class="scorecard">
+		<div class="scorecard" data-player-id="<%=p.id%>">
 			<div class="bigbox"> 
 				<select class="score_select" id="score_select_1_p<%=p.id%>">
 					<%11.times do |o|%>

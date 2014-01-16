@@ -24,7 +24,7 @@ describe "Play Game Page > " do
 			click_button 'Add Player'
 			click_button 'Play'
 
-			should have_selector("h2[data-game-id='1']")
+			should have_selector("div.game_id[data-game-id='1']")
 		end
 
 		it "Play page should have one scorecard for each player", js: true do
@@ -36,8 +36,8 @@ describe "Play Game Page > " do
 			click_button 'Add Player'
 			click_button 'Play'
 
-			should have_selector("div#scorecard[data-player-id='1']")
-			should have_selector("div#scorecard[data-player-id='2']")
+			should have_selector("div.scorecard[data-player-id='1']")
+			should have_selector("div.scorecard[data-player-id='2']")
 		end
 	end
 end
