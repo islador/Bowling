@@ -14,5 +14,8 @@ class Game < ActiveRecord::Base
   attr_accessible :date, :end_time, :start_time
 
   has_many :players
-  
+  #has_many :scorecards, through: :players
+
+  validates :date, presence: true
+  validates :start_time, presence: true
 end

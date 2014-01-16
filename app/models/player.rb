@@ -13,6 +13,10 @@
 class Player < ActiveRecord::Base
   attr_accessible :name, :team
 
-  has_one :scorecard
+  has_one :score_card
   belongs_to :game
+
+  validates :name, presence: true
+  validates :team, presence: true
+  validates :game, presence: true
 end

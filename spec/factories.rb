@@ -12,7 +12,7 @@ FactoryGirl.define do
 	factory :player do
 		ignore do
 			sequence(:set_name) {|n| "Player #{n}"}
-			sequence(:set_team) {|t| n}
+			sequence(:set_team) {|t| t}
 		end
 		name {set_name}
 		team {set_team}
@@ -20,7 +20,7 @@ FactoryGirl.define do
 		game
 	end
 
-	factory :scorecard do
+	factory :score_card do
 		throw1 0
 		throw2 0
 		throw3 0

@@ -22,36 +22,36 @@ describe Game do
 	it {should respond_to(:date)}
 
 	it {should respond_to(:players)}
-	it {should respond_to(:scorecards)}
+	#it {should respond_to(:scorecards)}
 
 	it {should be_valid}
 
 	describe "Relationships" do
 		let(:player1) {FactoryGirl.create(:player, game: game)}
-		let!(:scorecard1) {FactoryGirl.create(:scorecard, player: player1)}
+		let!(:scorecard1) {FactoryGirl.create(:score_card, player: player1)}
 
 		let(:player2) {FactoryGirl.create(:player, game: game)}
-		let!(:scorecard2) {FactoryGirl.create(:scorecard, player: player2)}
+		let!(:scorecard2) {FactoryGirl.create(:score_card, player: player2)}
 
 		it "should have many players" do
 			game.players[0].name.should match player1.name
 			game.players[1].name.should match player2.name
 		end
 
-		it "should have many scorecards" do
-			game.scorecards[0].should match player1.scorecard
-			game.scorecards[1].should match player2.scorecard
-		end
+		#it "should have many scorecards" do
+		#	game.scorecards[0].should match player1.scorecard
+		#	game.scorecards[1].should match player2.scorecard
+		#end
 	end
 
 	describe "Validations" do
-		it "should validate the presence of date" do
-			game.date = nil
+		describe "should validate the presence of date" do
+			before {game.date = nil}
 			it {should_not be_valid}
 		end
 
-		it "should validate the presence of start_time" do
-			game.start_time = nil
+		describe "should validate the presence of start_time" do
+			before{game.start_time = nil}
 			it {should_not be_valid}
 		end
 	end
