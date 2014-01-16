@@ -22,7 +22,6 @@ describe Game do
 	it {should respond_to(:date)}
 
 	it {should respond_to(:players)}
-	#it {should respond_to(:scorecards)}
 
 	it {should be_valid}
 
@@ -37,11 +36,6 @@ describe Game do
 			game.players[0].name.should match player1.name
 			game.players[1].name.should match player2.name
 		end
-
-		#it "should have many scorecards" do
-		#	game.scorecards[0].should match player1.scorecard
-		#	game.scorecards[1].should match player2.scorecard
-		#end
 	end
 
 	describe "Validations" do

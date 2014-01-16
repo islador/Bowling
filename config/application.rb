@@ -11,6 +11,10 @@ end
 
 module BowlingScorecard
   class Application < Rails::Application
+
+    #Set to avoid irrelevant deprecation warning.
+    #Details: http://stackoverflow.com/a/20381730/2748873
+    config.i18n.enforce_available_locales = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
