@@ -24,5 +24,8 @@ describe "Home Page > " do
 	end
 
 	describe "Body" do
+		it "should have basic content" do
+			should have_selector('h1', text: "Welcome to Bowling Land")
+		end
 	end
 end
