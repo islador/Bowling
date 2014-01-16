@@ -1,4 +1,6 @@
 BowlingScorecard::Application.routes.draw do
+  get "players/add_score"
+
   #get "games/home"
 
   #get "games/new"
@@ -15,6 +17,7 @@ BowlingScorecard::Application.routes.draw do
   match "/games/play", to: 'games#play'
 
   match "/add_player", to: 'games#add_player'
+  match "/add_score", to: 'players#add_score'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
