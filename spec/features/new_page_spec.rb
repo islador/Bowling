@@ -8,6 +8,10 @@ describe "New Game Page > " do
 		visit games_new_path
 	end
 
+	it "should have a big play button at the bottom" do
+		should have_selector('button#play', text: "Play")
+	end
+
 	describe "Player Add Form > " do
 		it "should have div add_player" do
 			should have_selector('div#add_player')
