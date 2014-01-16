@@ -1,2 +1,10 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+<div id="add_player">
+	<h2>Add a Player</h2>
+	<%= text_field(:player, :name, :size => 15, :placeholder => 'Name') %>
+
+	<%= radio_button_tag(:team, "Team 1") %>
+	<%= label_tag(:team_1, "Team 1") %>
+	<%= radio_button_tag(:team, "Team 2") %>
+	<%= label_tag(:team_2, "Team 2") %>
+	<button id="add_player_submit"type="button" class="btn btn-success">Add Player</button>
+</div>
