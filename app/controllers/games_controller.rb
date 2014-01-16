@@ -8,6 +8,11 @@ class GamesController < ApplicationController
   	render 'new'
   end
 
+  def add_player
+  	game = Game.where("id = ?", params[:game_id])[0]
+  	@player = game.players.create(name: params[:name], team: params[:team])
+  end
+
   def load
   end
 

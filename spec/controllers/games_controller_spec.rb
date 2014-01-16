@@ -21,6 +21,18 @@ describe GamesController do
 		end
 	end
 
+	describe "Add Player" do
+		let!(:game) {FactoryGirl.create(:game)}
+
+		it "should create players based on the parameters it is sent" do
+			xhr :post, :add_player, :game_id => 1, :name => "John", :team => 1
+
+			expect(assigns(:player).name).to match game.players[-1].name
+			expect(assigns(:player).team).to be game.players[-1].team
+			expect(assigns(:player)).to_not be_nil
+		end
+	end
+
 	describe "Load" do
 
 	end
