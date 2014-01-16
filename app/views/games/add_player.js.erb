@@ -1,0 +1,2 @@
+$('#team_1_display_table').empty().append("<%= escape_javascript(render(:partial => 'team_1_table', locals: {players: @players})) %>");
+$('#team_2_display_table').empty().append("<%= escape_javascript(render(:partial => 'team_2_table', locals: {players: @players})) %>");

@@ -1,0 +1,14 @@
+<table id ="team_2_table" class="table table-condensed">
+  <thead>
+    <th>Team 2</th>
+  </thead>
+  <tbody>
+  	<% @players.each do |p| %>
+  		<% if p.team == 2 %>
+		  	<tr>
+		  		<td data-player-id="<%=p.id%>" data-player-team="<%=p.team%>"><%=p.name%></td>
+		  	</tr>
+		<% end %>
+	<% end %>
+  </tbody>
+</table>

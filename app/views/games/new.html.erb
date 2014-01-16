@@ -1,10 +1,13 @@
-<div id="add_player">
+<center><div id="add_player" data-game-id="<%=@game.id%>">
 	<h2>Add a Player</h2>
-	<%= text_field(:player, :name, :size => 15, :placeholder => 'Name') %>
+	<%= render :partial => 'add_player'%>
+</div></center>
 
-	<%= radio_button_tag(:team, "Team 1") %>
-	<%= label_tag(:team_1, "Team 1") %>
-	<%= radio_button_tag(:team, "Team 2") %>
-	<%= label_tag(:team_2, "Team 2") %>
-	<button id="add_player_submit"type="button" class="btn btn-success">Add Player</button>
+
+<div id="team_1_display_table">
+	<%= render :partial => 'team_1_table', locals: { players: @players}%>
+</div>
+
+<div id="team_2_display_table">
+	<%= render :partial => 'team_2_table', locals: { players: @players}%>
 </div>
