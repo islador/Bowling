@@ -34,9 +34,15 @@ describe ScoreCard do
 
 	it {should be_valid}
 
-	describe "Relationships" do
+	describe "Associations" do
 		it "should belong to a player." do
 			scorecard.player.should be player
+		end
+	end
+
+	describe "Call Backs: " do
+		it "The scorecard should have a total of 0" do
+			scorecard.total.should be 0
 		end
 	end
 

@@ -35,6 +35,12 @@ class ScoreCard < ActiveRecord::Base
 
   belongs_to :player
 
+  before_save :default_values
+
   validates :player_id, presence: true
 
+
+  def default_values
+    self.total = 0
+  end
 end

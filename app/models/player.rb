@@ -16,7 +16,14 @@ class Player < ActiveRecord::Base
   has_one :score_card
   belongs_to :game
 
+  after_save :create_score_card
+
   validates :name, presence: true
   validates :team, presence: true
   validates :game, presence: true
+
+  #Creates a scorecard for itself
+  def update_flight
+  	self.create_score_card
+  end
 end
