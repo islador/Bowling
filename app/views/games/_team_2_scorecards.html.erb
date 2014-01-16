@@ -3,12 +3,12 @@
 	<h3><%=p.name%></h3>
 		<div class="scorecard" data-player-id="<%=p.id%>">
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_1_p<%=p.id%>">
+				<select class="score_select" id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select"id="score_select_2_p<%=p.id%>">
+				<select class="score_select"id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -16,12 +16,12 @@
 				<h2 class="score" id="s1_p<%=p.id%>">22</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select"id="score_select_3_p<%=p.id%>">
+				<select class="score_select"id="score_select_3_p<%=p.id%>" data-score-value="<%=p.score_card.throw3%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_4_p<%=p.id%>">
+				<select class="score_select" id="score_select_4_p<%=p.id%>" data-score-value="<%=p.score_card.throw4%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -29,12 +29,12 @@
 				<h2 class="score" id="s2_p<%=p.id%>">23</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_5_p<%=p.id%>">
+				<select class="score_select" id="score_select_5_p<%=p.id%>" data-score-value="<%=p.score_card.throw5%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_6_p<%=p.id%>">
+				<select class="score_select" id="score_select_6_p<%=p.id%>" data-score-value="<%=p.score_card.throw6%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -42,12 +42,12 @@
 				<h2 class="score" id="s3_p<%=p.id%>">12</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_7_p<%=p.id%>">
+				<select class="score_select" id="score_select_7_p<%=p.id%>" data-score-value="<%=p.score_card.throw7%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_8_p<%=p.id%>">
+				<select class="score_select" id="score_select_8_p<%=p.id%>" data-score-value="<%=p.score_card.throw8%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -55,12 +55,12 @@
 				<h2 class="score" id="s4_p<%=p.id%>">141</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_9_p<%=p.id%>">
+				<select class="score_select" id="score_select_9_p<%=p.id%>" data-score-value="<%=p.score_card.throw9%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_10_p<%=p.id%>">
+				<select class="score_select" id="score_select_10_p<%=p.id%>" data-score-value="<%=p.score_card.throw10%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -68,12 +68,12 @@
 				<h2 class="score" id="s5_p<%=p.id%>">122</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_11_p<%=p.id%>">
+				<select class="score_select" id="score_select_11_p<%=p.id%>" data-score-value="<%=p.score_card.throw11%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_12_p<%=p.id%>">
+				<select class="score_select" id="score_select_12_p<%=p.id%>" data-score-value="<%=p.score_card.throw12%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -81,12 +81,12 @@
 				<h2 class="score" id="s6_p<%=p.id%>">154</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_13_p<%=p.id%>">
+				<select class="score_select" id="score_select_13_p<%=p.id%>" data-score-value="<%=p.score_card.throw13%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_14_p<%=p.id%>">
+				<select class="score_select" id="score_select_14_p<%=p.id%>" data-score-value="<%=p.score_card.throw14%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -94,12 +94,12 @@
 				<h2 class="score" id="s7_p<%=p.id%>">192</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_15_p<%=p.id%>">
+				<select class="score_select" id="score_select_15_p<%=p.id%>" data-score-value="<%=p.score_card.throw15%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_16_p<%=p.id%>">
+				<select class="score_select" id="score_select_16_p<%=p.id%>" data-score-value="<%=p.score_card.throw16%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -107,12 +107,12 @@
 				<h2 class="score" id="s8_p<%=p.id%>">200</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_17_p<%=p.id%>">
+				<select class="score_select" id="score_select_17_p<%=p.id%>" data-score-value="<%=p.score_card.throw17%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_18_p<%=p.id%>">
+				<select class="score_select" id="score_select_18_p<%=p.id%>" data-score-value="<%=p.score_card.throw18%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
@@ -120,17 +120,17 @@
 				<h2 class="score" id="s9_p<%=p.id%>">222</h2>
 			</div>
 			<div class="bigbox"> 
-				<select class="score_select" id="score_select_19_p<%=p.id%>">
+				<select class="score_select" id="score_select_19_p<%=p.id%>" data-score-value="<%=p.score_card.throw19%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_20_p<%=p.id%>">
+				<select class="score_select" id="score_select_20_p<%=p.id%>" data-score-value="<%=p.score_card.throw20%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
 				</select>
-				<select class="score_select" id="score_select_21_p<%=p.id%>">
+				<select class="score_select" id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>">
 					<%11.times do |o|%>
 						<option><%=o%></option>
 					<%end%>
