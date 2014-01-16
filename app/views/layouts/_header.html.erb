@@ -1,0 +1,13 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Bowling Score Card", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav navbar-right">
+            <li><%= link_to "Load Game", games_load_path %><li>
+            <li><%= link_to "New Game", games_new_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

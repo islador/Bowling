@@ -1,7 +1,17 @@
 BowlingScorecard::Application.routes.draw do
+  #get "games/home"
+
+  #get "games/new"
+
+  #get "games/load"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  root to: 'games#home'
+
+  match "/games/load", to: 'games#load'
+  match "/games/new", to: 'games#new'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
