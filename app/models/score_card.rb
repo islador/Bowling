@@ -35,7 +35,7 @@ class ScoreCard < ActiveRecord::Base
 
   belongs_to :player
 
-  before_save :default_values
+  after_create :default_values
 
   validates :player_id, presence: true
 
