@@ -1,1 +1,11 @@
-<div class="game_id"><h2>Game Number: <%=@game.id%></h2></div>
+<div class="game_id" data-game-id="<%=@game.id%>"><h2>Game Number: <%=@game.id%></h2></div>
+
+<div class="team_box">
+	<h2>Team 1</h2>
+	<%= render :partial => 'team_1_scorecards', locals: {game: @game}%>
+</div>
+
+<div class="team_box">
+	<h2>Team 2</h2>
+	<%= render :partial => 'team_2_scorecards', locals: {game: @game}%>
+</div>
