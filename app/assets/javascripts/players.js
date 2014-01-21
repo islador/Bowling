@@ -5,14 +5,16 @@ $(document).ready(function(){
 			var player_id = $("#" + this.id).attr("data-player-id");
 			var throw_id = $("#" + this.id).attr("data-throw-id");
 
+			//alert(throw_id % 2)
+
 			//Double the input score if there was a strike or spare previously
 			if(throw_id % 2 != 0){
-				var previous_score_id = "score_select_" + (throw_id-1) + "_p" + this.id.slice(this.id.length-2, this.id.length)
-				var second_previous_score_id = "score_select_" + (throw_id-2) + "_p" + this.id.slice(this.id.length-2, this.id.length)
+				var previous_score_id = "score_select_" + (throw_id-1) + "_p" + this.id.slice(this.id.length-1, this.id.length)
+				var second_previous_score_id = "score_select_" + (throw_id-2) + "_p" + this.id.slice(this.id.length-1, this.id.length)
 				var score1 = $("#" + previous_score_id).val();
 				var score2 = $("#"+ second_previous_score_id).val();
 				var total = parseInt(score1) + parseInt(score2)
-
+				
 				if((score1 != 10) && (total == 10)){
 					//alert("Spare");
 					score = score*2
@@ -22,7 +24,7 @@ $(document).ready(function(){
 
 			//Double the input score if their was a strike previously
 			if(throw_id % 2 === 0){
-				var second_previous_score_id = "score_select_" + (throw_id-3) + "_p" + this.id.slice(this.id.length-2, this.id.length)
+				var second_previous_score_id = "score_select_" + (throw_id-3) + "_p" + this.id.slice(this.id.length-1, this.id.length)
 				//alert(second_previous_score_id);
 				var score2 = $("#"+ second_previous_score_id).val();
 				if(parseInt(score2) == 10) {
