@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$("select[id^=score_select_").on("change", function(){
+	$("select[id^='score_select_']").on("change", function(){
 			var score = $("#" + this.id).val();
 			var player_id = $("#" + this.id).attr("data-player-id");
 			var throw_id = $("#" + this.id).attr("data-throw-id");
@@ -16,6 +16,7 @@ $(document).ready(function(){
 				if((score1 != 10) && (total == 10)){
 					//alert("Spare");
 					score = score*2
+					//alert("Spare")
 				}
 			}
 
@@ -26,6 +27,7 @@ $(document).ready(function(){
 				var score2 = $("#"+ second_previous_score_id).val();
 				if(parseInt(score2) == 10) {
 					score = score * 2
+					//alert("Strike Bonus")
 				}
 			}
 			
@@ -48,7 +50,8 @@ $(document).ready(function(){
 		//Check for a strike
 		if((element.attr("data-throw-id") % 2 === 1) && (element.attr("data-throw-id") < 19) && (element.val() == 10)) {
 
-			target_id = "score_select_" + (parseInt(element.attr("data-throw-id"))+1) + "_p" + id.slice(id.length-2, id.length)
+			target_id = "score_select_" + (parseInt(element.attr("data-throw-id"))+1) + "_p" + id.slice(id.length-1, id.length)
+			//alert(target_id)
 
 			var score = 0;
 			var player_id = $(element).attr("data-player-id");
@@ -71,8 +74,6 @@ $(document).ready(function(){
 		//$("#player_name").val("");
 	}
 	function hide_id(id){
-		//alert("bark");
-		$("#" + target_id).hide()
-		//$("#player_name").val("");
+		$("#" + id).hide();
 	}
 });
