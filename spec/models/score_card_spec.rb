@@ -30,6 +30,17 @@ describe ScoreCard do
 	it {should respond_to(:throw21)}
 	it {should respond_to(:total)}
 
+	it {should respond_to(:frame_1)}
+	it {should respond_to(:frame_2)}
+	it {should respond_to(:frame_3)}
+	it {should respond_to(:frame_4)}
+	it {should respond_to(:frame_5)}
+	it {should respond_to(:frame_6)}
+	it {should respond_to(:frame_7)}
+	it {should respond_to(:frame_8)}
+	it {should respond_to(:frame_9)}
+	it {should respond_to(:frame_10)}
+
 	it {should respond_to(:player)}
 
 	it {should be_valid}
