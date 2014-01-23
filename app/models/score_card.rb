@@ -42,5 +42,16 @@ class ScoreCard < ActiveRecord::Base
 
   def default_values
     self.total = 0
+    self.frame_1 = 0
+    self.frame_2 = 0
+    self.frame_3 = 0
+    self.frame_4 = 0
+    self.frame_5 = 0
+    self.frame_6 = 0
+    self.frame_7 = 0
+    self.frame_8 = 0
+    self.frame_9 = 0
+    self.frame_10 = 0
+    self.save
   end
 end

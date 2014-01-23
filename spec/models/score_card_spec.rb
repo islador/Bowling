@@ -55,6 +55,20 @@ describe ScoreCard do
 		it "The scorecard should have a total of 0" do
 			scorecard.total.should be 0
 		end
+
+		it "All frames should have a value of 0" do
+			scorecard.frame_1.should be_nil
+			scorecard.frame_1.should be 0
+			scorecard.frame_2.should be 0
+			scorecard.frame_3.should be 0
+			scorecard.frame_4.should be 0
+			scorecard.frame_5.should be 0
+			scorecard.frame_6.should be 0
+			scorecard.frame_7.should be 0
+			scorecard.frame_8.should be 0
+			scorecard.frame_9.should be 0
+			scorecard.frame_10.should be 0
+		end
 	end
 
 	describe "Validations" do
