@@ -31,7 +31,7 @@
 #
 
 class ScoreCard < ActiveRecord::Base
-  attr_accessible :player_id, :throw1, :throw10, :throw11, :throw12, :throw13, :throw14, :throw15, :throw16, :throw17, :throw18, :throw19, :throw2, :throw20, :throw21, :throw3, :throw4, :throw5, :throw6, :throw7, :throw8, :throw9, :total
+  attr_accessible :player_id, :throw1, :throw10, :throw11, :throw12, :throw13, :throw14, :throw15, :throw16, :throw17, :throw18, :throw19, :throw2, :throw20, :throw21, :throw3, :throw4, :throw5, :throw6, :throw7, :throw8, :throw9, :total, :frame_1, :frame_2, :frame_3, :frame_4, :frame_5, :frame_6, :frame_7, :frame_8, :frame_9, :frame_10
 
   belongs_to :player
 
