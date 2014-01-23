@@ -54,6 +54,8 @@ class PlayersController < ApplicationController
     frame_score = score_card.send("frame_#{active_frame}")
     frame_score = frame_score + score
     score_card.send("frame_#{active_frame}=", frame_score)
+
+    return score_card
   end
 
   def strike_spare_check(current_throw, score_card, score)
