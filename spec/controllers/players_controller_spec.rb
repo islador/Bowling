@@ -7,7 +7,7 @@ describe PlayersController do
 		let!(:player1) {FactoryGirl.create(:player, game: game)}
 		let!(:player2) {FactoryGirl.create(:player, game: game)}
 
-		it "should add a score to a the player's score card" do
+		it "should add a score to the player's score card" do
 
 			xhr :post, :add_score, :player_id => player1.id, :throw_id => 1, :score => 10
 			
