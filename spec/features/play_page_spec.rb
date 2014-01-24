@@ -194,5 +194,82 @@ describe "Play Game Page > " do
 				should_not have_selector('#score_select_21_p1')
 			end
 		end
+
+		describe "Loaded Game > " do
+			it "should display existing scores instead of select drop downs", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "5", :from => "score_select_1_p1"
+
+				visit games_load_path
+
+				fill_in 'game_id', :with => '1'
+				click_button 'Load'
+
+				should_not have_selector('select#score_select_1_p1')
+				should have_selector('#score_select_1_p1', text: "5")
+			end
+
+			it "should not display the second select in a frame after a strike unless it is frame 10", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+
+				visit games_load_path
+
+				fill_in 'game_id', :with => '1'
+				click_button 'Load'
+
+				should_not have_selector('select#score_select_1_p1')
+				should have_selector('#score_select_1_p1', text: "10")
+
+				should_not have_selector('select#score_select_2_p1')
+				should have_selector('#score_select_2_p1', text: "")
+			end
+
+			it "should display the second select in frame 10 even if there is a strike in the first throw", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_17_p1"
+				select "10", :from => "score_select_19_p1"
+
+				visit games_load_path
+
+				fill_in 'game_id', :with => '1'
+				click_button 'Load'
+
+				should_not have_selector('select#score_select_19_p1')
+				should have_selector('#score_select_19_p1', text: "10")
+
+				should have_selector('select#score_select_20_p1')
+				should have_selector('select#score_select_21_p1')
+			end
+		end
 	end
 end
