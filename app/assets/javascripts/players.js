@@ -20,8 +20,23 @@ $(document).ready(function(){
 
 	function hide_id(id){
 		element = $("#"+id)
-		target_id = "score_select_" + (parseInt(element.attr("data-throw-id"))+1) + "_p" + id.slice(id.length-1, id.length)
 
-		$("#" + target_id).hide();
+		target_id = "score_select_" + (parseInt(element.attr("data-throw-id"))+1) + "_p" + element.attr("data-player-id")
+
+		previous_select = "score_select_" + (parseInt(element.attr("data-throw-id"))-1) + "_p" + element.attr("data-player-id")
+
+		if((parseInt(element.attr("data-throw-id"))+1) <= 18) {
+			if(parseInt(element.attr("data-throw-id")) % 2 == 1) {
+				if(parseInt(element.val()) == 10) {
+					$("#" + target_id).hide();
+				}
+			}
+		}
+
+		if(parseInt(element.attr("data-throw-id")) == 20) {
+			if(parseInt(element.val()) + parseInt($("#" + previous_select).val()) < 10) {
+				$("#"+ target_id).hide();
+			}
+		}	
 	}
 });
