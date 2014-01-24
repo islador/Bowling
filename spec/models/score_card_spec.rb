@@ -57,7 +57,6 @@ describe ScoreCard do
 		end
 
 		it "All frames should have a value of 0" do
-			scorecard.frame_1.should be_nil
 			scorecard.frame_1.should be 0
 			scorecard.frame_2.should be 0
 			scorecard.frame_3.should be 0
