@@ -17,32 +17,34 @@ class PlayersController < ApplicationController
     @score_card = strike_spare_check(params[:throw_id].to_i, @score_card, params[:score].to_i)
 
   	#Calculate total score
-  	@score_card = total_score(@player)
+  	@score_card = total_score(@score_card)
   	#update record
   	@score_card.save
+
+    @total = @score_card.total
 
   	@score = @player.score_card.send("throw#{params[:throw_id]}")
   end
 
   private
 
-  def total_score(player)
-    score_card = @player.score_card
+  def total_score(score_card)
   	total = 0
   	(1..10).each do |t|
   		response = score_card.send("frame_#{t}")
-  		score_card.total = total + response
+  		total = total + response
   	end
-  	
+  	score_card.total = total
   	return score_card
   end
 
   def current_frame(current_throw)
     active_frame = 0
-    if current_throw.odd? == true
-      active_frame = (current_throw + 1)/2
-    elsif current_throw == 21
+
+    if current_throw == 21
       active_frame = 10
+    elsif current_throw.odd? == true
+      active_frame = (current_throw + 1)/2
     else
       active_frame = current_throw/2
     end
@@ -83,14 +85,18 @@ class PlayersController < ApplicationController
       else
         #Else, the throw must be even, check if the previous odd frame was a strike
         if score_card.send("throw#{current_throw - 3}") == 10
-          #If so, add the current score that frame's score
-          score_card.send("frame_#{currnet_throw - 2}=", score)
+          #If so, add the current score to that frame's score
+          frame_score = score_card.send("frame_#{(current_throw -2)/2}")
+          frame_score = frame_score + score
+          score_card.send("frame_#{(current_throw - 2)/2}=", frame_score)
           #Also check if the next previous frame had a strike
-          if score_card.send("throw#{current_throw - 5}") == 10
-            #If so, add the current score to that frame's score as well.
-            frame_score = score_card.send("frame_#{current_throw -4}")
-            frame_score = frame_score + score
-            score_card.send("frame_#{current_throw - 4}=", frame_score)
+          if current_throw >= 5 and current_throw <= 19
+            if score_card.send("throw#{current_throw - 5}") == 10
+              #If so, add the current score to that frame's score as well.
+              frame_score = score_card.send("frame_#{(current_throw -4)/2}")
+              frame_score = frame_score + score
+              score_card.send("frame_#{(current_throw - 4)/2}=", frame_score)
+            end
           end
         end
       end
@@ -106,7 +112,9 @@ class PlayersController < ApplicationController
           #If the two throws before the current throw equal ten, then it is a spare.
           if score_card.send("throw#{current_throw - 1}") + score_card.send("throw#{current_throw - 2}") == 10
             #Add the current throw's score to the previous spare frame's frame score.
-            score_card.send("frame_#{current_throw - 1}=", score)
+            frame_score = score_card.send("frame_#{(current_throw -1)/2}")
+            frame_score = frame_score + score
+            score_card.send("frame_#{(current_throw - 1)/2}=", frame_score)
           end
         end
       end
