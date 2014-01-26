@@ -2,19 +2,31 @@
 	<% if p.team == 1 %>
 	<h3><%=p.name%></h3>
 		<div class="scorecard" data-player-id="<%=p.id%>">
-			<div class="bigbox"> 
-				<select class="score_select" id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>" data-player-id="<%=p.id%>" data-throw-id="1">
-					<option>Score</option>
-					<%11.times do |o|%>
-						<option><%=o%></option>
-					<%end%>
-				</select>
-				<select class="score_select"id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>" data-player-id="<%=p.id%>" data-throw-id="2">
-					<option>Score</option>
-					<%11.times do |o|%>
-						<option><%=o%></option>
-					<%end%>
-				</select>
+			<div class="bigbox">
+				<% if p.score_card.throw1 == nil%>
+					<select class="score_select" id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>" data-player-id="<%=p.id%>" data-throw-id="1">
+						<option>Score</option>
+						<%11.times do |o|%>
+							<option><%=o%></option>
+						<%end%>
+					</select>
+				<% else %>
+					<div id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>" data-player-id="<%=p.id%>" data-throw-id="1">
+						<%=p.score_card.throw1 %>
+					</div>
+				<% end %>
+				<% if p.score_card.throw1 == 10 or p.score_card.throw2.nil? == false %>
+					<div id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>" data-player-id="<%=p.id%>" data-throw-id="2">
+						<%=p.score_card.throw2 %>
+					</div>
+				<% else %>
+					<select class="score_select"id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>" data-player-id="<%=p.id%>" data-throw-id="2">
+						<option>Score</option>
+						<%11.times do |o|%>
+							<option><%=o%></option>
+						<%end%>
+					</select>
+				<% end %>
 				<h2 class="score" id="s1_p<%=p.id%>"></h2>
 			</div>
 			<div class="bigbox"> 

@@ -24,7 +24,6 @@ class GamesController < ApplicationController
 
   def play
   	@game = Game.where("id = ?", params[:game_id])[0]
-  	
   	render 'play'
   end
 end
