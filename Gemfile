@@ -5,11 +5,10 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 
+gem 'pg'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,7 +24,7 @@ end
 
 group :development do
 	gem 'annotate'
-	gem 'sqlite3'
+	
 end
 
 group :test do
@@ -36,9 +35,7 @@ group :test do
 	gem 'database_cleaner'
 end
 
-group :production do
-	gem 'pg'
-end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
