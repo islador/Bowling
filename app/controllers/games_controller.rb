@@ -15,8 +15,8 @@ class GamesController < ApplicationController
   	@players = game.players
 
   	respond_to do |format|
-		format.js
-	end
+  		format.js
+  	end
   end
 
   def load
@@ -25,5 +25,13 @@ class GamesController < ApplicationController
   def play
   	@game = Game.where("id = ?", params[:game_id])[0]
   	render 'play'
+  end
+
+  def game_exists?(game_id)
+    @game = Game.where("id = ?", params[:game_id])[0]
+
+    respond_to do |format|
+      format.js
+    end
   end
 end

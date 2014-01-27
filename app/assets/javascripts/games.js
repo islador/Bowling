@@ -25,4 +25,10 @@ $(document).ready(function(){
 		//alert("meow");
 		$("#player_name").val("");
 	}
+
+	$("#load").on("click", function(){
+		var game_id = $("#game_id").val();
+
+		window.location.href = "/games/play?game_id=" + game_id
+	});
 });

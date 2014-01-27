@@ -8,11 +8,11 @@ describe "Load Page > " do
 	end
 
 	it "should have a text field called game_id" do
-		should have_selector('text_field#game_id')
+		should have_selector('input#game_id')
 	end
 
 	it "should have a button called 'Load'" do
-		should have_selector('Button#load_button', text: 'Load')
+		should have_selector('button#load', text: 'Load')
 	end
 
 	describe "Javascript > " do
@@ -30,7 +30,7 @@ describe "Load Page > " do
 
 			visit games_load_path
 			fill_in 'game_id', :with => 'meow'
-			click 'Load'
+			click_button 'Load'
 			should have_selector('#not_valid', text: 'Game not valid')
 			should have_selector('Button#try_again', text: 'Try Again')
 		end
@@ -48,7 +48,7 @@ describe "Load Page > " do
 
 			visit games_load_path
 			fill_in 'game_id', :with => '22'
-			click 'Load'
+			click_button 'Load'
 			should have_selector('#not_found', text: 'Game not found')
 			should have_selector('Button#try_again', text: 'Try Again')
 		end
@@ -66,7 +66,7 @@ describe "Load Page > " do
 
 			visit games_load_path
 			fill_in 'game_id', :with => '1'
-			click 'Load'
+			click_button 'Load'
 			should have_selector('#game_id', text: 'Game Number: 1')
 		end
 	end
