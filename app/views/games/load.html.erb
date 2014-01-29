@@ -1,7 +1,8 @@
 <center>
 	<h2> Load a Game </h2>
+	<div id="game_exists">
+		<%#Place holder for _game_exists%>
+	</div>
 	<%= text_field(:game, :id, :size => 15, :placeholder => 'Game #') %>
 	<button id="load"type="button" class="btn btn-success btn-lg">Load</button>
 </center>
-
-Write a partial in that will display the above by default but if game_exists? comes back nil, display the modified page in accordance with the load_page spec descriptions. In this fashion creating a loop where games that do not exist are never tried to be played and games that do exist can be played on the first click. This will require some JS to handle properly.

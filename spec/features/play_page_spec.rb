@@ -5,7 +5,7 @@ describe "Play Game Page > " do
 
 	let(:game) {FactoryGirl.create(:game)}
 
-	describe "JavaScript" do
+	describe "JavaScript > " do
 		before(:each) do
 			visit games_new_path
 		end
@@ -93,6 +93,69 @@ describe "Play Game Page > " do
 			select "10", :from => "score_select_5_p1"
 			should have_selector('#total_score_p1', text: "60")
 		end
+
+		it "should remove the select after a score is selected from it and replace it with a hard text score", js: true do
+
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				should_not have_selector('select#score_select_1_p1')
+				should have_selector('#score_select_1_p1', text: "10")
+				
+				select "10", :from => "score_select_3_p1"
+				should_not have_selector('select#score_select_3_p1')
+				should have_selector('#score_select_3_p1', text: "10")
+				
+				select "10", :from => "score_select_5_p1"
+				should_not have_selector('select#score_select_5_p1')
+				should have_selector('#score_select_5_p1', text: "10")
+
+				select "10", :from => "score_select_7_p1"
+				should_not have_selector('select#score_select_7_p1')
+				should have_selector('#score_select_7_p1', text: "10")
+
+				select "10", :from => "score_select_9_p1"
+				should_not have_selector('select#score_select_9_p1')
+				should have_selector('#score_select_9_p1', text: "10")
+
+				select "10", :from => "score_select_11_p1"
+				should_not have_selector('select#score_select_11_p1')
+				should have_selector('#score_select_11_p1', text: "10")
+
+				select "10", :from => "score_select_13_p1"
+				should_not have_selector('select#score_select_13_p1')
+				should have_selector('#score_select_13_p1', text: "10")
+
+				select "5", :from => "score_select_15_p1"
+				should_not have_selector('select#score_select_15_p1')
+				should have_selector('#score_select_15_p1', text: "5")
+
+				select "4", :from => "score_select_16_p1"
+				should_not have_selector('select#score_select_16_p1')
+				should have_selector('#score_select_16_p1', text: "4")
+
+				select "10", :from => "score_select_17_p1"
+				should_not have_selector('select#score_select_17_p1')
+				should have_selector('#score_select_17_p1', text: "10")
+
+				select "0", :from => "score_select_19_p1"
+				should_not have_selector('select#score_select_19_p1')
+				should have_selector('#score_select_19_p1', text: "0")
+
+				select "10", :from => "score_select_20_p1"
+				should_not have_selector('select#score_select_20_p1')
+				should have_selector('#score_select_20_p1', text: "10")
+
+				select "10", :from => "score_select_21_p1"
+				should_not have_selector('select#score_select_21_p1')
+				should have_selector('#score_select_21_p1', text: "10")
+			end
 
 		describe "Last Frame > " do
 			it "should not hide the 20th select after a strike in the 19th", js: true do
@@ -206,6 +269,26 @@ describe "Play Game Page > " do
 				click_button 'Play'
 
 				select "5", :from => "score_select_1_p1"
+				select "5", :from => "score_select_2_p1"
+				select "5", :from => "score_select_3_p1"
+				select "5", :from => "score_select_4_p1"
+				select "5", :from => "score_select_5_p1"
+				select "5", :from => "score_select_6_p1"
+				select "5", :from => "score_select_7_p1"
+				select "5", :from => "score_select_8_p1"
+				select "5", :from => "score_select_9_p1"
+				select "5", :from => "score_select_10_p1"
+				select "5", :from => "score_select_11_p1"
+				select "5", :from => "score_select_12_p1"
+				select "5", :from => "score_select_13_p1"
+				select "5", :from => "score_select_14_p1"
+				select "5", :from => "score_select_15_p1"
+				select "5", :from => "score_select_16_p1"
+				select "5", :from => "score_select_17_p1"
+				select "5", :from => "score_select_18_p1"
+				select "5", :from => "score_select_19_p1"
+				select "5", :from => "score_select_20_p1"
+				select "5", :from => "score_select_21_p1"
 
 				visit games_load_path
 
@@ -214,6 +297,66 @@ describe "Play Game Page > " do
 
 				should_not have_selector('select#score_select_1_p1')
 				should have_selector('#score_select_1_p1', text: "5")
+
+				should_not have_selector('select#score_select_2_p1')
+				should have_selector('#score_select_2_p1', text: "5")
+
+				should_not have_selector('select#score_select_3_p1')
+				should have_selector('#score_select_3_p1', text: "5")
+
+				should_not have_selector('select#score_select_4_p1')
+				should have_selector('#score_select_4_p1', text: "5")
+
+				should_not have_selector('select#score_select_5_p1')
+				should have_selector('#score_select_5_p1', text: "5")
+
+				should_not have_selector('select#score_select_6_p1')
+				should have_selector('#score_select_6_p1', text: "5")
+
+				should_not have_selector('select#score_select_7_p1')
+				should have_selector('#score_select_7_p1', text: "5")
+
+				should_not have_selector('select#score_select_8_p1')
+				should have_selector('#score_select_8_p1', text: "5")
+
+				should_not have_selector('select#score_select_9_p1')
+				should have_selector('#score_select_9_p1', text: "5")
+
+				should_not have_selector('select#score_select_10_p1')
+				should have_selector('#score_select_10_p1', text: "5")
+
+				should_not have_selector('select#score_select_11_p1')
+				should have_selector('#score_select_11_p1', text: "5")
+
+				should_not have_selector('select#score_select_12_p1')
+				should have_selector('#score_select_12_p1', text: "5")
+
+				should_not have_selector('select#score_select_13_p1')
+				should have_selector('#score_select_13_p1', text: "5")
+
+				should_not have_selector('select#score_select_14_p1')
+				should have_selector('#score_select_14_p1', text: "5")
+
+				should_not have_selector('select#score_select_15_p1')
+				should have_selector('#score_select_15_p1', text: "5")
+
+				should_not have_selector('select#score_select_16_p1')
+				should have_selector('#score_select_16_p1', text: "5")
+
+				should_not have_selector('select#score_select_17_p1')
+				should have_selector('#score_select_17_p1', text: "5")
+
+				should_not have_selector('select#score_select_18_p1')
+				should have_selector('#score_select_18_p1', text: "5")
+
+				should_not have_selector('select#score_select_19_p1')
+				should have_selector('#score_select_19_p1', text: "5")
+
+				should_not have_selector('select#score_select_20_p1')
+				should have_selector('#score_select_20_p1', text: "5")
+
+				should_not have_selector('select#score_select_21_p1')
+				should have_selector('#score_select_21_p1', text: "5")
 			end
 
 			it "should not display the second select in a frame after a strike unless it is frame 10", js: true do

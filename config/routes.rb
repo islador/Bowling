@@ -1,5 +1,5 @@
 BowlingScorecard::Application.routes.draw do
-  get "players/add_score"
+  #get "players/add_score"
 
   #get "games/home"
 
@@ -15,6 +15,7 @@ BowlingScorecard::Application.routes.draw do
   match "/games/load", to: 'games#load'
   match "/games/new", to: 'games#new'
   match "/games/play", to: 'games#play'
+  match "/games/game_exists", to: 'games#game_exists'
 
   match "/add_player", to: 'games#add_player'
   match "/add_score", to: 'players#add_score'
