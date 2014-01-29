@@ -31,8 +31,7 @@ describe "Load Page > " do
 			visit games_load_path
 			fill_in 'game_id', :with => 'meow'
 			click_button 'Load'
-			should have_selector('#not_valid', text: 'Game not valid')
-			should have_selector('Button#try_again', text: 'Try Again')
+			should have_selector('#game_exists', text: 'Game not Found, Try Again')
 		end
 
 		it "clicking the load button with a value that does not return a game should throw an error", js: true do
@@ -49,8 +48,7 @@ describe "Load Page > " do
 			visit games_load_path
 			fill_in 'game_id', :with => '22'
 			click_button 'Load'
-			should have_selector('#not_found', text: 'Game not found')
-			should have_selector('Button#try_again', text: 'Try Again')
+			should have_selector('#game_exists', text: 'Game not Found, Try Again')
 		end
 
 		it "clicking the load button with a value matching an existing game should yield that game's page", js: true do
@@ -67,7 +65,7 @@ describe "Load Page > " do
 			visit games_load_path
 			fill_in 'game_id', :with => '1'
 			click_button 'Load'
-			should have_selector('#game_id', text: 'Game Number: 1')
+			should have_selector('.game_id', text: 'Game Number: 1')
 		end
 	end
 end

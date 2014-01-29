@@ -1,0 +1,9 @@
+<% if @game.nil? == true %>
+	<div id="game_status" data-game-id="" data-game-valid="invalid">
+		<h3> Game Not Found, Try Again </h3>
+	</div>
+<% end %>
+
+<% if @game.nil? == false %>
+	<div id="game_status" data-game-id="<%=@game.id%>" data-game-valid="valid"></div>
+<% end %>

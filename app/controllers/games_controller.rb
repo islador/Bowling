@@ -27,11 +27,17 @@ class GamesController < ApplicationController
   	render 'play'
   end
 
-  def game_exists?(game_id)
-    @game = Game.where("id = ?", params[:game_id])[0]
+  def game_exists
+    if (/^[0-9]{0,45}$/ === params[:game_id]) == false
+      render :json => "invalid"
+    else
+      @game = Game.where("id = ?", params[:game_id])[0]
 
-    respond_to do |format|
-      format.js
+      if @game.nil? == true
+        render :json => "invalid"
+      else
+        render :json => "valid"
+      end
     end
   end
 end

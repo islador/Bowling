@@ -52,4 +52,18 @@ describe GamesController do
 			expect(assigns(:game).id).to be 1
 		end
 	end
+
+	describe "game_exists" do
+		let!(:game) {FactoryGirl.create(:game)}
+
+		it "should retrieve the game with an id matching the parameter it is sent" do
+			xhr :get, :game_exists, :game_id => 1
+			expect(assigns(:game).id).to be 1
+		end
+
+		it "should return a nil if there is no name matching the ID it is sent" do
+			xhr :get, :game_exists, :game_id => 22
+			expect(assigns(:game)).to be_nil
+		end
+	end
 end
