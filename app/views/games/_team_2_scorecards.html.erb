@@ -3,307 +3,360 @@
 	<h3><%=p.name%></h3>
 		<div class="scorecard" data-player-id="<%=p.id%>">
 			<div class="bigbox">
-				<% if p.score_card.throw1 == nil%>
-					<select class="score_select" id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>" data-player-id="<%=p.id%>" data-throw-id="1">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>" data-player-id="<%=p.id%>" data-throw-id="1">
-						<%=p.score_card.throw1 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw1 == 10 or p.score_card.throw2.nil? == false %>
-					<div id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>" data-player-id="<%=p.id%>" data-throw-id="2">
-						<%=p.score_card.throw2 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>" data-player-id="<%=p.id%>" data-throw-id="2">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+				<div id="outer_score_select_1_p<%=p.id%>">
+					<% if p.score_card.throw1 == nil%>
+						<select class="score_select" id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>" data-player-id="<%=p.id%>" data-throw-id="1">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_1_p<%=p.id%>" data-score-value="<%=p.score_card.throw1%>" data-player-id="<%=p.id%>" data-throw-id="1">
+							<%=p.score_card.throw1 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_2_p<%=p.id%>">
+					<% if p.score_card.throw1 == 10 or p.score_card.throw2.nil? == false %>
+						<div id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>" data-player-id="<%=p.id%>" data-throw-id="2">
+							<%=p.score_card.throw2 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_2_p<%=p.id%>" data-score-value="<%=p.score_card.throw2%>" data-player-id="<%=p.id%>" data-throw-id="2">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s1_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw3 == nil%>
-					<select class="score_select" id="score_select_3_p<%=p.id%>" data-score-value="<%=p.score_card.throw3%>" data-player-id="<%=p.id%>" data-throw-id="3">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_3_p<%=p.id%>" data-score-value="<%=p.score_card.throw3%>" data-player-id="<%=p.id%>" data-throw-id="3">
-						<%=p.score_card.throw3 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw3 == 10 or p.score_card.throw4.nil? == false %>
-					<div id="score_select_4_p<%=p.id%>" data-score-value="<%=p.score_card.throw4%>" data-player-id="<%=p.id%>" data-throw-id="4">
-						<%=p.score_card.throw4 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_4_p<%=p.id%>" data-score-value="<%=p.score_card.throw4%>" data-player-id="<%=p.id%>" data-throw-id="4">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_3_p<%=p.id%>">
+					<% if p.score_card.throw3 == nil%>
+						<select class="score_select" id="score_select_3_p<%=p.id%>" data-score-value="<%=p.score_card.throw3%>" data-player-id="<%=p.id%>" data-throw-id="3">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_3_p<%=p.id%>" data-score-value="<%=p.score_card.throw3%>" data-player-id="<%=p.id%>" data-throw-id="3">
+							<%=p.score_card.throw3 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_4_p<%=p.id%>">
+					<% if p.score_card.throw3 == 10 or p.score_card.throw4.nil? == false %>
+						<div id="score_select_4_p<%=p.id%>" data-score-value="<%=p.score_card.throw4%>" data-player-id="<%=p.id%>" data-throw-id="4">
+							<%=p.score_card.throw4 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_4_p<%=p.id%>" data-score-value="<%=p.score_card.throw4%>" data-player-id="<%=p.id%>" data-throw-id="4">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s2_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw5 == nil%>
-					<select class="score_select" id="score_select_5_p<%=p.id%>" data-score-value="<%=p.score_card.throw5%>" data-player-id="<%=p.id%>" data-throw-id="5">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_5_p<%=p.id%>" data-score-value="<%=p.score_card.throw5%>" data-player-id="<%=p.id%>" data-throw-id="5">
-						<%=p.score_card.throw5 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw5 == 10 or p.score_card.throw6.nil? == false %>
-					<div id="score_select_6_p<%=p.id%>" data-score-value="<%=p.score_card.throw6%>" data-player-id="<%=p.id%>" data-throw-id="6">
-						<%=p.score_card.throw6 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_6_p<%=p.id%>" data-score-value="<%=p.score_card.throw6%>" data-player-id="<%=p.id%>" data-throw-id="6">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_5_p<%=p.id%>">
+					<% if p.score_card.throw5 == nil%>
+						<select class="score_select" id="score_select_5_p<%=p.id%>" data-score-value="<%=p.score_card.throw5%>" data-player-id="<%=p.id%>" data-throw-id="5">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_5_p<%=p.id%>" data-score-value="<%=p.score_card.throw5%>" data-player-id="<%=p.id%>" data-throw-id="5">
+							<%=p.score_card.throw5 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_6_p<%=p.id%>">
+					<% if p.score_card.throw5 == 10 or p.score_card.throw6.nil? == false %>
+						<div id="score_select_6_p<%=p.id%>" data-score-value="<%=p.score_card.throw6%>" data-player-id="<%=p.id%>" data-throw-id="6">
+							<%=p.score_card.throw6 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_6_p<%=p.id%>" data-score-value="<%=p.score_card.throw6%>" data-player-id="<%=p.id%>" data-throw-id="6">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s3_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw7 == nil%>
-					<select class="score_select" id="score_select_7_p<%=p.id%>" data-score-value="<%=p.score_card.throw7%>" data-player-id="<%=p.id%>" data-throw-id="7">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_7_p<%=p.id%>" data-score-value="<%=p.score_card.throw7%>" data-player-id="<%=p.id%>" data-throw-id="7">
-						<%=p.score_card.throw7 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw7 == 10 or p.score_card.throw8.nil? == false %>
-					<div id="score_select_8_p<%=p.id%>" data-score-value="<%=p.score_card.throw8%>" data-player-id="<%=p.id%>" data-throw-id="8">
-						<%=p.score_card.throw8 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_8_p<%=p.id%>" data-score-value="<%=p.score_card.throw8%>" data-player-id="<%=p.id%>" data-throw-id="8">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_7_p<%=p.id%>">
+					<% if p.score_card.throw7 == nil%>
+						<select class="score_select" id="score_select_7_p<%=p.id%>" data-score-value="<%=p.score_card.throw7%>" data-player-id="<%=p.id%>" data-throw-id="7">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_7_p<%=p.id%>" data-score-value="<%=p.score_card.throw7%>" data-player-id="<%=p.id%>" data-throw-id="7">
+							<%=p.score_card.throw7 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_8_p<%=p.id%>">
+					<% if p.score_card.throw7 == 10 or p.score_card.throw8.nil? == false %>
+						<div id="score_select_8_p<%=p.id%>" data-score-value="<%=p.score_card.throw8%>" data-player-id="<%=p.id%>" data-throw-id="8">
+							<%=p.score_card.throw8 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_8_p<%=p.id%>" data-score-value="<%=p.score_card.throw8%>" data-player-id="<%=p.id%>" data-throw-id="8">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s4_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw9 == nil%>
-					<select class="score_select" id="score_select_9_p<%=p.id%>" data-score-value="<%=p.score_card.throw9%>" data-player-id="<%=p.id%>" data-throw-id="9">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_9_p<%=p.id%>" data-score-value="<%=p.score_card.throw9%>" data-player-id="<%=p.id%>" data-throw-id="9">
-						<%=p.score_card.throw9 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw9 == 10 or p.score_card.throw10.nil? == false %>
-					<div id="score_select_10_p<%=p.id%>" data-score-value="<%=p.score_card.throw10%>" data-player-id="<%=p.id%>" data-throw-id="10">
-						<%=p.score_card.throw10 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_10_p<%=p.id%>" data-score-value="<%=p.score_card.throw10%>" data-player-id="<%=p.id%>" data-throw-id="10">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_9_p<%=p.id%>">
+					<% if p.score_card.throw9 == nil%>
+						<select class="score_select" id="score_select_9_p<%=p.id%>" data-score-value="<%=p.score_card.throw9%>" data-player-id="<%=p.id%>" data-throw-id="9">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_9_p<%=p.id%>" data-score-value="<%=p.score_card.throw9%>" data-player-id="<%=p.id%>" data-throw-id="9">
+							<%=p.score_card.throw9 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_10_p<%=p.id%>">
+					<% if p.score_card.throw9 == 10 or p.score_card.throw10.nil? == false %>
+						<div id="score_select_10_p<%=p.id%>" data-score-value="<%=p.score_card.throw10%>" data-player-id="<%=p.id%>" data-throw-id="10">
+							<%=p.score_card.throw10 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_10_p<%=p.id%>" data-score-value="<%=p.score_card.throw10%>" data-player-id="<%=p.id%>" data-throw-id="10">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s5_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw11 == nil%>
-					<select class="score_select" id="score_select_11_p<%=p.id%>" data-score-value="<%=p.score_card.throw11%>" data-player-id="<%=p.id%>" data-throw-id="11">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_11_p<%=p.id%>" data-score-value="<%=p.score_card.throw11%>" data-player-id="<%=p.id%>" data-throw-id="11">
-						<%=p.score_card.throw11 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw11 == 10 or p.score_card.throw12.nil? == false %>
-					<div id="score_select_12_p<%=p.id%>" data-score-value="<%=p.score_card.throw12%>" data-player-id="<%=p.id%>" data-throw-id="12">
-						<%=p.score_card.throw12 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_12_p<%=p.id%>" data-score-value="<%=p.score_card.throw12%>" data-player-id="<%=p.id%>" data-throw-id="12">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_11_p<%=p.id%>">
+					<% if p.score_card.throw11 == nil%>
+						<select class="score_select" id="score_select_11_p<%=p.id%>" data-score-value="<%=p.score_card.throw11%>" data-player-id="<%=p.id%>" data-throw-id="11">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_11_p<%=p.id%>" data-score-value="<%=p.score_card.throw11%>" data-player-id="<%=p.id%>" data-throw-id="11">
+							<%=p.score_card.throw11 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_12_p<%=p.id%>">
+					<% if p.score_card.throw11 == 10 or p.score_card.throw12.nil? == false %>
+						<div id="score_select_12_p<%=p.id%>" data-score-value="<%=p.score_card.throw12%>" data-player-id="<%=p.id%>" data-throw-id="12">
+							<%=p.score_card.throw12 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_12_p<%=p.id%>" data-score-value="<%=p.score_card.throw12%>" data-player-id="<%=p.id%>" data-throw-id="12">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s6_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw13 == nil%>
-					<select class="score_select" id="score_select_13_p<%=p.id%>" data-score-value="<%=p.score_card.throw13%>" data-player-id="<%=p.id%>" data-throw-id="13">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_13_p<%=p.id%>" data-score-value="<%=p.score_card.throw13%>" data-player-id="<%=p.id%>" data-throw-id="13">
-						<%=p.score_card.throw13 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw13 == 10 or p.score_card.throw14.nil? == false %>
-					<div id="score_select_14_p<%=p.id%>" data-score-value="<%=p.score_card.throw14%>" data-player-id="<%=p.id%>" data-throw-id="14">
-						<%=p.score_card.throw14 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_14_p<%=p.id%>" data-score-value="<%=p.score_card.throw14%>" data-player-id="<%=p.id%>" data-throw-id="14">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_13_p<%=p.id%>">
+					<% if p.score_card.throw13 == nil%>
+						<select class="score_select" id="score_select_13_p<%=p.id%>" data-score-value="<%=p.score_card.throw13%>" data-player-id="<%=p.id%>" data-throw-id="13">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_13_p<%=p.id%>" data-score-value="<%=p.score_card.throw13%>" data-player-id="<%=p.id%>" data-throw-id="13">
+							<%=p.score_card.throw13 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_14_p<%=p.id%>">
+					<% if p.score_card.throw13 == 10 or p.score_card.throw14.nil? == false %>
+						<div id="score_select_14_p<%=p.id%>" data-score-value="<%=p.score_card.throw14%>" data-player-id="<%=p.id%>" data-throw-id="14">
+							<%=p.score_card.throw14 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_14_p<%=p.id%>" data-score-value="<%=p.score_card.throw14%>" data-player-id="<%=p.id%>" data-throw-id="14">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s7_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw15 == nil%>
-					<select class="score_select" id="score_select_15_p<%=p.id%>" data-score-value="<%=p.score_card.throw15%>" data-player-id="<%=p.id%>" data-throw-id="15">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_15_p<%=p.id%>" data-score-value="<%=p.score_card.throw15%>" data-player-id="<%=p.id%>" data-throw-id="15">
-						<%=p.score_card.throw15 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw15 == 10 or p.score_card.throw16.nil? == false %>
-					<div id="score_select_16_p<%=p.id%>" data-score-value="<%=p.score_card.throw16%>" data-player-id="<%=p.id%>" data-throw-id="16">
-						<%=p.score_card.throw16 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_16_p<%=p.id%>" data-score-value="<%=p.score_card.throw16%>" data-player-id="<%=p.id%>" data-throw-id="16">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_15_p<%=p.id%>">
+					<% if p.score_card.throw15 == nil%>
+						<select class="score_select" id="score_select_15_p<%=p.id%>" data-score-value="<%=p.score_card.throw15%>" data-player-id="<%=p.id%>" data-throw-id="15">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_15_p<%=p.id%>" data-score-value="<%=p.score_card.throw15%>" data-player-id="<%=p.id%>" data-throw-id="15">
+							<%=p.score_card.throw15 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_16_p<%=p.id%>">
+					<% if p.score_card.throw15 == 10 or p.score_card.throw16.nil? == false %>
+						<div id="score_select_16_p<%=p.id%>" data-score-value="<%=p.score_card.throw16%>" data-player-id="<%=p.id%>" data-throw-id="16">
+							<%=p.score_card.throw16 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_16_p<%=p.id%>" data-score-value="<%=p.score_card.throw16%>" data-player-id="<%=p.id%>" data-throw-id="16">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s8_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw17 == nil%>
-					<select class="score_select" id="score_select_17_p<%=p.id%>" data-score-value="<%=p.score_card.throw17%>" data-player-id="<%=p.id%>" data-throw-id="17">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_17_p<%=p.id%>" data-score-value="<%=p.score_card.throw17%>" data-player-id="<%=p.id%>" data-throw-id="17">
-						<%=p.score_card.throw17 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw17 == 10 or p.score_card.throw18.nil? == false %>
-					<div id="score_select_18_p<%=p.id%>" data-score-value="<%=p.score_card.throw18%>" data-player-id="<%=p.id%>" data-throw-id="18">
-						<%=p.score_card.throw18 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_18_p<%=p.id%>" data-score-value="<%=p.score_card.throw18%>" data-player-id="<%=p.id%>" data-throw-id="18">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_17_p<%=p.id%>">
+					<% if p.score_card.throw17 == nil%>
+						<select class="score_select" id="score_select_17_p<%=p.id%>" data-score-value="<%=p.score_card.throw17%>" data-player-id="<%=p.id%>" data-throw-id="17">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_17_p<%=p.id%>" data-score-value="<%=p.score_card.throw17%>" data-player-id="<%=p.id%>" data-throw-id="17">
+							<%=p.score_card.throw17 %>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_18_p<%=p.id%>">
+					<% if p.score_card.throw17 == 10 or p.score_card.throw18.nil? == false %>
+						<div id="score_select_18_p<%=p.id%>" data-score-value="<%=p.score_card.throw18%>" data-player-id="<%=p.id%>" data-throw-id="18">
+							<%=p.score_card.throw18 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_18_p<%=p.id%>" data-score-value="<%=p.score_card.throw18%>" data-player-id="<%=p.id%>" data-throw-id="18">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
 				<h2 class="score" id="s9_p<%=p.id%>"></h2>
 			</div>
-			<div class="bigbox"> 
-				<% if p.score_card.throw19 == nil%>
-					<select class="score_select" id="score_select_19_p<%=p.id%>" data-score-value="<%=p.score_card.throw19%>" data-player-id="<%=p.id%>" data-throw-id="19">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% else %>
-					<div id="score_select_19_p<%=p.id%>" data-score-value="<%=p.score_card.throw19%>" data-player-id="<%=p.id%>" data-throw-id="19">
-						<%=p.score_card.throw19 %>
-					</div>
-				<% end %>
-				<% if p.score_card.throw20.nil? == false %>
-					<div id="score_select_20_p<%=p.id%>" data-score-value="<%=p.score_card.throw20%>" data-player-id="<%=p.id%>" data-throw-id="20">
-						<%=p.score_card.throw20 %>
-					</div>
-				<% else %>
-					<select class="score_select"id="score_select_20_p<%=p.id%>" data-score-value="<%=p.score_card.throw20%>" data-player-id="<%=p.id%>" data-throw-id="20">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<% end %>
-				<%# If p20 is not yet filled in, display the select%>
-				<% if p.score_card.throw20.nil? == true %>
-					<select class="score_select"id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<%# If throws 19 + 20 are a spare and 21 is nil, display the select%>
-				<% elsif p.score_card.throw19 != 10 and p.score_card.throw19 + p.score_card.throw20 == 10 and p.score_card.throw21.nil? == true %>
-					<select class="score_select"id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<%# If 19 is a strike and 21 is nil, display the select%>
-				<% elsif p.score_card.throw19 == 10 and p.score_card.throw21 == nil %>
-					<select class="score_select"id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
-						<option>Score</option>
-						<%11.times do |o|%>
-							<option value="<%=o%>"><%=o%></option>
-						<%end%>
-					</select>
-				<%# If 19 and 20 are not a strike or spare, and 21 is nil, do not display the select%>
-				<%elsif (p.score_card.throw19 != 10 or p.score_card.throw19 + p.score_card.throw20 != 10) and p.score_card.throw21.nil? == true%>
-					<div id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
-						<%=p.score_card.throw21 %>
-					</div>
-				<% else %>
-					<div id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
-						<%=p.score_card.throw21 %>
-					</div>
-				<% end %>
+			<div class="bigbox">
+				<div id="outer_score_select_19_p<%=p.id%>">
+					<% if p.score_card.throw19 == nil%>
+						<select class="score_select" id="score_select_19_p<%=p.id%>" data-score-value="<%=p.score_card.throw19%>" data-player-id="<%=p.id%>" data-throw-id="19">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% else %>
+						<div id="score_select_19_p<%=p.id%>" data-score-value="<%=p.score_card.throw19%>" data-player-id="<%=p.id%>" data-throw-id="19">
+							<%=p.score_card.throw19 %>
+						</div>
+					<% end %>
+				</div>
+				
+				<div id="outer_score_select_20_p<%=p.id%>">
+					<% if p.score_card.throw20.nil? == false %>
+						<div id="score_select_20_p<%=p.id%>" data-score-value="<%=p.score_card.throw20%>" data-player-id="<%=p.id%>" data-throw-id="20">
+							<%=p.score_card.throw20 %>
+						</div>
+					<% else %>
+						<select class="score_select"id="score_select_20_p<%=p.id%>" data-score-value="<%=p.score_card.throw20%>" data-player-id="<%=p.id%>" data-throw-id="20">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<% end %>
+				</div>
+
+				<div id="outer_score_select_21_p<%=p.id%>">
+					<%# If p20 is not yet filled in, display the select%>
+					<% if p.score_card.throw20.nil? == true %>
+						<select class="score_select"id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<%# If throws 19 + 20 are a spare and 21 is nil, display the select%>
+					<% elsif p.score_card.throw19 != 10 and p.score_card.throw19 + p.score_card.throw20 == 10 and p.score_card.throw21.nil? == true %>
+						<select class="score_select"id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<%# If 19 is a strike and 21 is nil, display the select%>
+					<% elsif p.score_card.throw19 == 10 and p.score_card.throw21 == nil %>
+						<select class="score_select"id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
+							<option>Score</option>
+							<%11.times do |o|%>
+								<option value="<%=o%>"><%=o%></option>
+							<%end%>
+						</select>
+					<%# If 19 and 20 are not a strike or spare, and 21 is nil, do not display the select%>
+					<%elsif (p.score_card.throw19 != 10 or p.score_card.throw19 + p.score_card.throw20 != 10) and p.score_card.throw21.nil? == true%>
+						<div id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
+							<%=p.score_card.throw21 %>
+						</div>
+					<% else %>
+						<div id="score_select_21_p<%=p.id%>" data-score-value="<%=p.score_card.throw21%>" data-player-id="<%=p.id%>" data-throw-id="21">
+							<%=p.score_card.throw21 %>
+						</div>
+					<% end %>
+				</div>
 				<h2 class="score" id="s10_p<%=p.id%>"></h2>
 			</div>
 			

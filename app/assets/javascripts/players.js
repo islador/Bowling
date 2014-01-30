@@ -25,7 +25,10 @@ $(document).ready(function(){
 
 		previous_select = "score_select_" + (parseInt(element.attr("data-throw-id"))-1) + "_p" + element.attr("data-player-id")
 
-		//alert("Previous: " + previous_select + ", Current: " + id + ", Target: " + target_id)
+		//alert(previous_select)
+		alert($("#" + previous_select).val())
+
+		//Remove illegal scores from the second select in a frame if there isn't a strike and current frame isn't frame 20
 		if(parseInt(element.attr("data-throw-id")) != 20) {
 			if(parseInt(element.val()) != 10) {
 				remove_invalid_options(target_id, id)
@@ -41,40 +44,37 @@ $(document).ready(function(){
 		}
 
 		if(parseInt(element.attr("data-throw-id")) == 20) {
+			alert("hai")
+			//alert(element.val())
+			alert($("#" + previous_select).val())
 			if(parseInt(element.val()) + parseInt($("#" + previous_select).val()) < 10) {
 				$("#"+ target_id).hide();
 			}
-		}	
+		}
+		remove_select(id)
 	}
 
 	function remove_invalid_options(target_id, current_id){
 		var target = "#" + target_id;
 		var current = "#" + current_id;
 		element = $(target);
-		//alert(target);
-		//$(target + " option[value='10']").remove();
-		//$("#" + target_id + " option[value='10']").remove();
-		//alert(element.attr("data-throw-id"));
-		//alert(element.attr("data-throw-id"));
 
 		if(parseInt(element.attr("data-throw-id")) % 2 == 0) {
-			//alert(element.attr("data-throw-id"));
-			
-			$(target + " option").each(function()
-				{
-					//alert("hai")
-					option = $(this).val();
-					past_score = $(current).val();
-					//alert(option)
-					//alert(this.val());
-				    if(parseInt(option) + parseInt(past_score) > 10){
-				    //	
-				    	//alert("more")
-				    	$(this).remove();
-				    }
-				    
-				});
-			//$(target + " option[value='10']").remove();
+			$(target + " option").each(function(){
+				option = $(this).val();
+				past_score = $(current).val();
+
+			    if(parseInt(option) + parseInt(past_score) > 10){
+			    	$(this).remove();
+			    }
+			});
 		}
+	}
+
+	function remove_select(current_id){
+		
+		var current = "#" + current_id
+		var score = $(current).val();
+		$("#outer_" + current_id).empty().append("<div id='" + current_id + "' data-score-value='" + score + "' data-player-id='' data-throw-id='' value='" + score + "'>" + score + "</div>");
 	}
 });
