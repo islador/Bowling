@@ -25,6 +25,13 @@ $(document).ready(function(){
 
 		previous_select = "score_select_" + (parseInt(element.attr("data-throw-id"))-1) + "_p" + element.attr("data-player-id")
 
+		//alert("Previous: " + previous_select + ", Current: " + id + ", Target: " + target_id)
+		if(parseInt(element.attr("data-throw-id")) != 20) {
+			if(parseInt(element.val()) != 10) {
+				remove_invalid_options(target_id, id)
+			}
+		}
+
 		if((parseInt(element.attr("data-throw-id"))+1) <= 18) {
 			if(parseInt(element.attr("data-throw-id")) % 2 == 1) {
 				if(parseInt(element.val()) == 10) {
@@ -38,5 +45,36 @@ $(document).ready(function(){
 				$("#"+ target_id).hide();
 			}
 		}	
+	}
+
+	function remove_invalid_options(target_id, current_id){
+		var target = "#" + target_id;
+		var current = "#" + current_id;
+		element = $(target);
+		//alert(target);
+		//$(target + " option[value='10']").remove();
+		//$("#" + target_id + " option[value='10']").remove();
+		//alert(element.attr("data-throw-id"));
+		//alert(element.attr("data-throw-id"));
+
+		if(parseInt(element.attr("data-throw-id")) % 2 == 0) {
+			//alert(element.attr("data-throw-id"));
+			
+			$(target + " option").each(function()
+				{
+					//alert("hai")
+					option = $(this).val();
+					past_score = $(current).val();
+					//alert(option)
+					//alert(this.val());
+				    if(parseInt(option) + parseInt(past_score) > 10){
+				    //	
+				    	//alert("more")
+				    	$(this).remove();
+				    }
+				    
+				});
+			//$(target + " option[value='10']").remove();
+		}
 	}
 });

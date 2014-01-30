@@ -94,6 +94,224 @@ describe "Play Game Page > " do
 			should have_selector('#total_score_p1', text: "60")
 		end
 
+		describe "Score Removal > " do
+
+			it "should remove all illegal scores from the next select in a frame", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "5", :from => "score_select_1_p1"
+
+				#Should remove all illegal scores from the next select in the frame
+				within '#score_select_2_p1' do
+					should have_css("option[value='0']")
+					should have_css("option[value='1']")
+					should have_css("option[value='2']")
+					should have_css("option[value='3']")
+					should have_css("option[value='4']")
+					should have_css("option[value='5']")
+
+					should_not have_css("option[value='6']")
+					should_not have_css("option[value='7']")
+					should_not have_css("option[value='8']")
+					should_not have_css("option[value='9']")
+					should_not have_css("option[value='10']")
+				end
+
+				select "3", :from => "score_select_2_p1"
+
+				#Should not alter scores in the next frame's select
+				within '#score_select_3_p1' do
+					should have_css("option[value='0']")
+					should have_css("option[value='1']")
+					should have_css("option[value='2']")
+					should have_css("option[value='3']")
+					should have_css("option[value='4']")
+					should have_css("option[value='5']")
+					should have_css("option[value='6']")
+					should have_css("option[value='7']")
+					should have_css("option[value='8']")
+					should have_css("option[value='9']")
+					should have_css("option[value='10']")
+				end
+
+				select "0", :from => "score_select_3_p1"
+
+				#Should have all values in the next select within the frame
+				within '#score_select_4_p1' do
+					should have_css("option[value='0']")
+					should have_css("option[value='1']")
+					should have_css("option[value='2']")
+					should have_css("option[value='3']")
+					should have_css("option[value='4']")
+					should have_css("option[value='5']")
+					should have_css("option[value='6']")
+					should have_css("option[value='7']")
+					should have_css("option[value='8']")
+					should have_css("option[value='9']")
+					should have_css("option[value='10']")
+				end
+			end
+
+			it "should remove illegal scores from throw 20 if a strike is not scored in throw 19", js: true do
+
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_17_p1"
+
+				select "5", :from => "score_select_19_p1"
+
+				#Should have all values in the next select within the frame
+				within '#score_select_20_p1' do
+					should have_css("option[value='0']")
+					should have_css("option[value='1']")
+					should have_css("option[value='2']")
+					should have_css("option[value='3']")
+					should have_css("option[value='4']")
+					should have_css("option[value='5']")
+
+					should_not have_css("option[value='6']")
+					should_not have_css("option[value='7']")
+					should_not have_css("option[value='8']")
+					should_not have_css("option[value='9']")
+					should_not have_css("option[value='10']")
+				end
+			end
+
+			it "should not remove scores from throw 20 if a strike is scored in throw 19", js: true do
+
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_17_p1"
+
+				select "10", :from => "score_select_19_p1"
+
+				#Should have all values in the next select within the frame
+				within '#score_select_20_p1' do
+					should have_css("option[value='0']")
+					should have_css("option[value='1']")
+					should have_css("option[value='2']")
+					should have_css("option[value='3']")
+					should have_css("option[value='4']")
+					should have_css("option[value='5']")
+					should have_css("option[value='6']")
+					should have_css("option[value='7']")
+					should have_css("option[value='8']")
+					should have_css("option[value='9']")
+					should have_css("option[value='10']")
+				end
+			end
+
+			it "should not remove scores from throw 21 if a strike is scored in throw 20", js: true do
+
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_17_p1"
+				select "10", :from => "score_select_19_p1"
+				select "10", :from => "score_select_20_p1"
+
+				#Should have all values in the next select within the frame
+				within '#score_select_21_p1' do
+					should have_css("option[value='0']")
+					should have_css("option[value='1']")
+					should have_css("option[value='2']")
+					should have_css("option[value='3']")
+					should have_css("option[value='4']")
+					should have_css("option[value='5']")
+					should have_css("option[value='6']")
+					should have_css("option[value='7']")
+					should have_css("option[value='8']")
+					should have_css("option[value='9']")
+					should have_css("option[value='10']")
+				end
+			end
+
+			it "should not remove scores from throw 21 if a spare is scored in throw 19 and 20", js: true do
+
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_17_p1"
+				select "5", :from => "score_select_19_p1"
+				select "5", :from => "score_select_20_p1"
+
+				#Should have all values in the next select within the frame
+				within '#score_select_21_p1' do
+					should have_css("option[value='0']")
+					should have_css("option[value='1']")
+					should have_css("option[value='2']")
+					should have_css("option[value='3']")
+					should have_css("option[value='4']")
+					should have_css("option[value='5']")
+					should have_css("option[value='6']")
+					should have_css("option[value='7']")
+					should have_css("option[value='8']")
+					should have_css("option[value='9']")
+					should have_css("option[value='10']")
+				end
+			end
+		end
+		
 		it "should remove the select after a score is selected from it and replace it with a hard text score", js: true do
 
 				fill_in 'player_name', :with => 'Jack'
