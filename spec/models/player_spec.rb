@@ -8,6 +8,8 @@
 #  game_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  turn_order :integer
+#  start_turn :integer
 #
 
 require 'spec_helper'
@@ -20,6 +22,8 @@ describe Player do
 
 	it {should respond_to(:name)}
 	it {should respond_to(:team)}
+	it {should respond_to(:turn_order)}
+	it {should respond_to(:start_turn)}
 
 	it {should respond_to(:game)}
 	it {should respond_to(:score_card)}
@@ -57,6 +61,17 @@ describe Player do
 		describe "should validate the presence of a team" do
 			before {player.team = nil}
 			it {should_not be_valid}
+		end
+
+		describe "should validate the presence of a turn_order" do
+
+			before {player.turn_order = nil}
+			xit {should_not be_valid}
+		end
+
+		describe "should validate the presence of a start_turn" do
+			before {player.start_turn = nil}
+			xit {should_not be_valid}
 		end
 	end
 
