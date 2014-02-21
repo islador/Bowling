@@ -1,3 +1,45 @@
+# == Schema Information
+#
+# Table name: score_cards
+#
+#  id         :integer          not null, primary key
+#  throw1     :integer
+#  throw2     :integer
+#  throw3     :integer
+#  throw4     :integer
+#  throw5     :integer
+#  throw6     :integer
+#  throw7     :integer
+#  throw8     :integer
+#  throw9     :integer
+#  throw10    :integer
+#  throw11    :integer
+#  throw12    :integer
+#  throw13    :integer
+#  throw14    :integer
+#  throw15    :integer
+#  throw16    :integer
+#  throw17    :integer
+#  throw18    :integer
+#  throw19    :integer
+#  throw20    :integer
+#  throw21    :integer
+#  total      :integer
+#  player_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  frame_1    :integer
+#  frame_2    :integer
+#  frame_3    :integer
+#  frame_4    :integer
+#  frame_5    :integer
+#  frame_6    :integer
+#  frame_7    :integer
+#  frame_8    :integer
+#  frame_9    :integer
+#  frame_10   :integer
+#
+
 require 'spec_helper'
 
 describe ScoreCard do
