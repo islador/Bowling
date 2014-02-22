@@ -94,6 +94,175 @@ describe "Play Game Page > " do
 			should have_selector('#total_score_p1', text: "60")
 		end
 
+		it "should remove the select after a score is selected from it and replace it with a hard text score", js: true do
+
+			fill_in 'player_name', :with => 'Jack'
+			choose 'team_1'
+			click_button 'Add Player'
+			fill_in 'player_name', :with => 'Jill'
+			choose 'team_2'
+			click_button 'Add Player'
+			click_button 'Play'
+
+			select "10", :from => "score_select_1_p1"
+			should_not have_selector('select#score_select_1_p1')
+			should have_selector('#score_select_1_p1', text: "10")
+			
+			select "10", :from => "score_select_3_p1"
+			should_not have_selector('select#score_select_3_p1')
+			should have_selector('#score_select_3_p1', text: "10")
+			
+			select "10", :from => "score_select_5_p1"
+			should_not have_selector('select#score_select_5_p1')
+			should have_selector('#score_select_5_p1', text: "10")
+
+			select "10", :from => "score_select_7_p1"
+			should_not have_selector('select#score_select_7_p1')
+			should have_selector('#score_select_7_p1', text: "10")
+
+			select "10", :from => "score_select_9_p1"
+			should_not have_selector('select#score_select_9_p1')
+			should have_selector('#score_select_9_p1', text: "10")
+
+			select "10", :from => "score_select_11_p1"
+			should_not have_selector('select#score_select_11_p1')
+			should have_selector('#score_select_11_p1', text: "10")
+
+			select "10", :from => "score_select_13_p1"
+			should_not have_selector('select#score_select_13_p1')
+			should have_selector('#score_select_13_p1', text: "10")
+
+			select "5", :from => "score_select_15_p1"
+			should_not have_selector('select#score_select_15_p1')
+			should have_selector('#score_select_15_p1', text: "5")
+
+			select "4", :from => "score_select_16_p1"
+			should_not have_selector('select#score_select_16_p1')
+			should have_selector('#score_select_16_p1', text: "4")
+
+			select "10", :from => "score_select_17_p1"
+			should_not have_selector('select#score_select_17_p1')
+			should have_selector('#score_select_17_p1', text: "10")
+
+			select "0", :from => "score_select_19_p1"
+			should_not have_selector('select#score_select_19_p1')
+			should have_selector('#score_select_19_p1', text: "0")
+
+			select "10", :from => "score_select_20_p1"
+			should_not have_selector('select#score_select_20_p1')
+			should have_selector('#score_select_20_p1', text: "10")
+
+			select "10", :from => "score_select_21_p1"
+			should_not have_selector('select#score_select_21_p1')
+			should have_selector('#score_select_21_p1', text: "10")
+		end
+
+		describe "Turn Enforcement > " do
+			it "should have the number of players in the div.game_id element as data-player-count", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				should have_selector("div.game_id[data-player-count='2']", )
+			end
+
+			it "Each div.bigbox should have the id turn_number_X and a data attribute 'data-turn-number=X'", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				within '#score_card_0' do
+					should have_selector("div#turn_number_0[data-turn-number='0']")
+					should have_selector("div#turn_number_2[data-turn-number='2']")
+					should have_selector("div#turn_number_4[data-turn-number='4']")
+					should have_selector("div#turn_number_6[data-turn-number='6']")
+					should have_selector("div#turn_number_8[data-turn-number='8']")
+					should have_selector("div#turn_number_10[data-turn-number='10']")
+					should have_selector("div#turn_number_12[data-turn-number='12']")
+					should have_selector("div#turn_number_14[data-turn-number='14']")
+					should have_selector("div#turn_number_16[data-turn-number='16']")
+					should have_selector("div#turn_number_18[data-turn-number='18']")
+				end
+
+				within '#score_card_1' do
+					should have_selector("div#turn_number_1[data-turn-number='1']")
+					should have_selector("div#turn_number_3[data-turn-number='3']")
+					should have_selector("div#turn_number_5[data-turn-number='5']")
+					should have_selector("div#turn_number_7[data-turn-number='7']")
+					should have_selector("div#turn_number_9[data-turn-number='9']")
+					should have_selector("div#turn_number_11[data-turn-number='11']")
+					should have_selector("div#turn_number_13[data-turn-number='13']")
+					should have_selector("div#turn_number_15[data-turn-number='15']")
+					should have_selector("div#turn_number_17[data-turn-number='17']")
+					should have_selector("div#turn_number_19[data-turn-number='19']")
+				end
+			end
+
+			it "The first player's first div.bigbox should have the id turn_number_0 and a data attribute 'data-turn-number=0'", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				within '#score_card_0' do
+					should have_selector("div#turn_number_0[data-turn-number='0']")
+				end
+			end
+
+			it "In a two player game the first player's tenth div.bigbox should have the id turn_number_18 and a data attribute 'data-turn-number=18'", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				within '#score_card_0' do
+					should have_selector("div#turn_number_18[data-turn-number='18']")
+				end
+			end
+
+			it "In a two player game the second player's first div.bigbox should have the id turn_number_1 and a data attribute 'data-turn-number=1'", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				within '#score_card_1' do
+					should have_selector("div#turn_number_1[data-turn-number='1']")
+				end
+			end
+
+			it "In a two player game the second player's tenth div.bigbox should have the id turn_number_19 and a data attribute 'data-turn-number=19'", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				within '#score_card_1' do
+					should have_selector("div#turn_number_19[data-turn-number='19']")
+				end
+			end
+		end
+
 		describe "Score Removal > " do
 
 			it "should remove all illegal scores from the next select in a frame", js: true do
@@ -311,69 +480,6 @@ describe "Play Game Page > " do
 				end
 			end
 		end
-		
-		it "should remove the select after a score is selected from it and replace it with a hard text score", js: true do
-
-				fill_in 'player_name', :with => 'Jack'
-				choose 'team_1'
-				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
-				click_button 'Play'
-
-				select "10", :from => "score_select_1_p1"
-				should_not have_selector('select#score_select_1_p1')
-				should have_selector('#score_select_1_p1', text: "10")
-				
-				select "10", :from => "score_select_3_p1"
-				should_not have_selector('select#score_select_3_p1')
-				should have_selector('#score_select_3_p1', text: "10")
-				
-				select "10", :from => "score_select_5_p1"
-				should_not have_selector('select#score_select_5_p1')
-				should have_selector('#score_select_5_p1', text: "10")
-
-				select "10", :from => "score_select_7_p1"
-				should_not have_selector('select#score_select_7_p1')
-				should have_selector('#score_select_7_p1', text: "10")
-
-				select "10", :from => "score_select_9_p1"
-				should_not have_selector('select#score_select_9_p1')
-				should have_selector('#score_select_9_p1', text: "10")
-
-				select "10", :from => "score_select_11_p1"
-				should_not have_selector('select#score_select_11_p1')
-				should have_selector('#score_select_11_p1', text: "10")
-
-				select "10", :from => "score_select_13_p1"
-				should_not have_selector('select#score_select_13_p1')
-				should have_selector('#score_select_13_p1', text: "10")
-
-				select "5", :from => "score_select_15_p1"
-				should_not have_selector('select#score_select_15_p1')
-				should have_selector('#score_select_15_p1', text: "5")
-
-				select "4", :from => "score_select_16_p1"
-				should_not have_selector('select#score_select_16_p1')
-				should have_selector('#score_select_16_p1', text: "4")
-
-				select "10", :from => "score_select_17_p1"
-				should_not have_selector('select#score_select_17_p1')
-				should have_selector('#score_select_17_p1', text: "10")
-
-				select "0", :from => "score_select_19_p1"
-				should_not have_selector('select#score_select_19_p1')
-				should have_selector('#score_select_19_p1', text: "0")
-
-				select "10", :from => "score_select_20_p1"
-				should_not have_selector('select#score_select_20_p1')
-				should have_selector('#score_select_20_p1', text: "10")
-
-				select "10", :from => "score_select_21_p1"
-				should_not have_selector('select#score_select_21_p1')
-				should have_selector('#score_select_21_p1', text: "10")
-			end
 
 		describe "Last Frame > " do
 			it "should not hide the 20th select after a strike in the 19th", js: true do
