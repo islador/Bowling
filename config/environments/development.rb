@@ -33,5 +33,7 @@ BowlingScorecard::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = true
+  # Failed to sort out precompiled assets properly after pushing turn enforcement to heroku.
+  # Fixed the local JS duplication issue with http://stackoverflow.com/questions/10520724/why-does-rake-assetsprecompile-in-development-cause-problems-but-not-in-my-prod
+  config.assets.debug = false
 end
