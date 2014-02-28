@@ -40,26 +40,6 @@ describe "Play Game Page > " do
 			should have_selector("div.scorecard[data-player-id='2']")
 		end
 
-		it "No selects other then select 21 should be hidden on a throw of less then a strike", js: true do
-			fill_in 'player_name', :with => 'Jack'
-			choose 'team_1'
-			click_button 'Add Player'
-			fill_in 'player_name', :with => 'Jill'
-			choose 'team_2'
-			click_button 'Add Player'
-			click_button 'Play'
-
-			select "5", :from => "score_select_1_p1"
-			should have_selector('#score_select_2_p1')
-
-			select "5", :from => "score_select_2_p1"
-			should have_selector('#score_select_3_p1')
-
-			select "7", :from => "score_select_6_p1"
-			should have_selector('#score_select_7_p1')
-			should have_selector('#score_select_8_p1')
-		end
-
 		it "in the event of a strike, the second score select for that frame should not be visible.", js: true do
 			fill_in 'player_name', :with => 'Jack'
 			choose 'team_1'
@@ -78,9 +58,6 @@ describe "Play Game Page > " do
 			fill_in 'player_name', :with => 'Jack'
 			choose 'team_1'
 			click_button 'Add Player'
-			fill_in 'player_name', :with => 'Jill'
-			choose 'team_2'
-			click_button 'Add Player'
 			click_button 'Play'
 
 			select "10", :from => "score_select_1_p1"
@@ -98,9 +75,6 @@ describe "Play Game Page > " do
 
 			fill_in 'player_name', :with => 'Jack'
 			choose 'team_1'
-			click_button 'Add Player'
-			fill_in 'player_name', :with => 'Jill'
-			choose 'team_2'
 			click_button 'Add Player'
 			click_button 'Play'
 
@@ -158,7 +132,7 @@ describe "Play Game Page > " do
 		end
 
 		describe "Turn Enforcement > " do
-			it "should have the number of players in the div.game_id element as data-player-count", js: true do
+			it "Should have the number of players in the div.game_id element as data-player-count", js: true do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
@@ -178,6 +152,39 @@ describe "Play Game Page > " do
 				choose 'team_2'
 				click_button 'Add Player'
 				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_1_p2"
+
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_3_p2"
+				
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_5_p2"
+
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_7_p2"
+
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_9_p2"
+
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_11_p2"
+
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_13_p2"
+
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_15_p2"
+
+				select "10", :from => "score_select_17_p1"
+				select "10", :from => "score_select_17_p2"
+
+				select "0", :from => "score_select_19_p1"
+				select "0", :from => "score_select_20_p1"
+
+				select "0", :from => "score_select_19_p2"
+				select "0", :from => "score_select_20_p2"
 
 				within '#score_card_0' do
 					should have_selector("div#turn_number_0[data-turn-number='0']")
@@ -229,6 +236,33 @@ describe "Play Game Page > " do
 				click_button 'Add Player'
 				click_button 'Play'
 
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_1_p2"
+
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_3_p2"
+
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_5_p2"
+
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_7_p2"
+
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_9_p2"
+
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_11_p2"
+
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_13_p2"
+
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_15_p2"
+
+				select "10", :from => "score_select_17_p1"
+				select "10", :from => "score_select_17_p2"
+
 				within '#score_card_0' do
 					should have_selector("div#turn_number_18[data-turn-number='18']")
 				end
@@ -242,6 +276,9 @@ describe "Play Game Page > " do
 				choose 'team_2'
 				click_button 'Add Player'
 				click_button 'Play'
+
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_1_p2"
 
 				within '#score_card_1' do
 					should have_selector("div#turn_number_1[data-turn-number='1']")
@@ -257,9 +294,66 @@ describe "Play Game Page > " do
 				click_button 'Add Player'
 				click_button 'Play'
 
+				select "10", :from => "score_select_1_p1"
+				select "10", :from => "score_select_1_p2"
+
+				select "10", :from => "score_select_3_p1"
+				select "10", :from => "score_select_3_p2"
+
+				select "10", :from => "score_select_5_p1"
+				select "10", :from => "score_select_5_p2"
+
+				select "10", :from => "score_select_7_p1"
+				select "10", :from => "score_select_7_p2"
+
+				select "10", :from => "score_select_9_p1"
+				select "10", :from => "score_select_9_p2"
+
+				select "10", :from => "score_select_11_p1"
+				select "10", :from => "score_select_11_p2"
+
+				select "10", :from => "score_select_13_p1"
+				select "10", :from => "score_select_13_p2"
+
+				select "10", :from => "score_select_15_p1"
+				select "10", :from => "score_select_15_p2"
+
+				select "10", :from => "score_select_17_p1"
+				select "10", :from => "score_select_17_p2"
+
+				select "10", :from => "score_select_19_p1"
+				select "10", :from => "score_select_20_p1"
+				select "10", :from => "score_select_21_p1"
+
 				within '#score_card_1' do
 					should have_selector("div#turn_number_19[data-turn-number='19']")
 				end
+			end
+
+			it "Should display the first turn frame on a new game and wait for player input", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				should have_selector('#turn_number_0')
+				should_not have_selector('#turn_number_1')
+			end
+
+			it "Should display the first turn frame's first select but not the second on a new game and wait for player input", js: true do
+				fill_in 'player_name', :with => 'Jack'
+				choose 'team_1'
+				click_button 'Add Player'
+				fill_in 'player_name', :with => 'Jill'
+				choose 'team_2'
+				click_button 'Add Player'
+				click_button 'Play'
+
+				should have_selector('#score_select_1_p1')
+				should_not have_selector('#score_select_2_p1')
 			end
 		end
 
@@ -268,9 +362,6 @@ describe "Play Game Page > " do
 			it "should remove all illegal scores from the next select in a frame", js: true do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
-				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
 				click_button 'Add Player'
 				click_button 'Play'
 
@@ -332,9 +423,6 @@ describe "Play Game Page > " do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
 				click_button 'Play'
 
 				select "10", :from => "score_select_1_p1"
@@ -371,9 +459,6 @@ describe "Play Game Page > " do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
 				click_button 'Play'
 
 				select "10", :from => "score_select_1_p1"
@@ -409,9 +494,6 @@ describe "Play Game Page > " do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
 				click_button 'Play'
 
 				select "10", :from => "score_select_1_p1"
@@ -446,9 +528,6 @@ describe "Play Game Page > " do
 
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
-				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
 				click_button 'Add Player'
 				click_button 'Play'
 
@@ -487,9 +566,6 @@ describe "Play Game Page > " do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
 				click_button 'Play'
 
 				select "10", :from => "score_select_1_p1"
@@ -513,9 +589,6 @@ describe "Play Game Page > " do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
 				click_button 'Play'
 
 				select "10", :from => "score_select_1_p1"
@@ -529,6 +602,7 @@ describe "Play Game Page > " do
 				select "4", :from => "score_select_16_p1"
 				select "10", :from => "score_select_17_p1"
 				select "10", :from => "score_select_19_p1"
+				select "0", :from => "score_select_20_p1"
 				should have_selector('#score_select_21_p1')
 			end
 
@@ -536,9 +610,6 @@ describe "Play Game Page > " do
 
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
-				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
 				click_button 'Add Player'
 				click_button 'Play'
 
@@ -562,9 +633,6 @@ describe "Play Game Page > " do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
 				click_button 'Play'
 				select "10", :from => "score_select_1_p1"
 				select "10", :from => "score_select_3_p1"
@@ -586,9 +654,6 @@ describe "Play Game Page > " do
 			it "should display existing scores instead of select drop downs", js: true do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
-				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
 				click_button 'Add Player'
 				click_button 'Play'
 
@@ -710,9 +775,6 @@ describe "Play Game Page > " do
 				fill_in 'player_name', :with => 'Jack'
 				choose 'team_1'
 				click_button 'Add Player'
-				fill_in 'player_name', :with => 'Jill'
-				choose 'team_2'
-				click_button 'Add Player'
 				click_button 'Play'
 
 				select "10", :from => "score_select_1_p1"
@@ -734,8 +796,11 @@ describe "Play Game Page > " do
 				should_not have_selector('select#score_select_19_p1')
 				should have_selector('#score_select_19_p1', text: "10")
 
+				
 				should have_selector('select#score_select_20_p1')
-				should have_selector('select#score_select_21_p1')
+				
+				#select "10", :from => "score_select_20_p1"
+				#should have_selector('select#score_select_21_p1')
 			end
 		end
 	end
