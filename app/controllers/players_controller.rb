@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   def add_score
   	@player = Player.where("id = ?", params[:player_id])[0]
+    
     #Determine current frame
     active_frame = current_frame(params[:throw_id].to_i)
 

@@ -11,7 +11,26 @@ class GamesController < ApplicationController
 
   def add_player
   	game = Game.where("id = ?", params[:game_id])[0]
-  	@player = game.players.create(name: params[:name], team: params[:team])
+    
+    #Assign turn_order
+    player_count = game.players.where("team = ?", params[:team])
+
+    if params[:team].to_i == 1 and player_count.empty? == true
+      @turn_order = 0
+    end
+
+    if params[:team].to_i == 2 and player_count.empty? == true
+      @turn_order = 1
+    end
+
+    if player_count.empty? == false
+      @turn_order = 2 + player_count.last.turn_order
+    end
+
+    #Assign start_turn
+    @start_turn = @turn_order * 10
+
+  	@player = game.players.create(name: params[:name], team: params[:team], turn_order: @turn_order, start_turn: @start_turn)
   	@players = game.players
 
   	respond_to do |format|
@@ -39,5 +58,18 @@ class GamesController < ApplicationController
         render :json => "valid"
       end
     end
+  end
+
+  def update_select
+    @game = Game.where("id = ?", params[:game_id])[0]
+    @game.active_select = params[:current_select]
+    @game.save
+
+    render nothing: true
+  end
+
+  private
+  def define_turn_order(player)
+
   end
 end

@@ -28,6 +28,16 @@
 #  player_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  frame_1    :integer
+#  frame_2    :integer
+#  frame_3    :integer
+#  frame_4    :integer
+#  frame_5    :integer
+#  frame_6    :integer
+#  frame_7    :integer
+#  frame_8    :integer
+#  frame_9    :integer
+#  frame_10   :integer
 #
 
 class ScoreCard < ActiveRecord::Base
