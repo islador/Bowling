@@ -60,6 +60,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def update_select
+    @game = Game.where("id = ?", params[:game_id])[0]
+    @game.active_select = params[:current_select]
+    @game.save
+
+    render nothing: true
+  end
+
   private
   def define_turn_order(player)
 

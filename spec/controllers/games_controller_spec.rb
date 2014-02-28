@@ -137,4 +137,18 @@ describe GamesController do
 			expect(assigns(:game)).to be_nil
 		end
 	end
+
+	describe "update_select" do
+		let!(:game) {FactoryGirl.create(:game)}
+
+		it "should retrieve the game with an id matching the parameter it is sent" do
+			xhr :post, :update_select, :game_id => 1, :current_select => 2
+			expect(assigns(:game).id).to be 1
+		end
+
+		it "should update the game with the latest select number" do
+			xhr :post, :update_select, :game_id => 1, :current_select => 1
+			expect(assigns(:game).active_select).to be 1
+		end
+	end
 end
